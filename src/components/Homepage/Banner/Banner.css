@@ -1,0 +1,7 @@
+.banner{
+    background-image: url("https://image.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827775.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    background-size: cover;
+}
