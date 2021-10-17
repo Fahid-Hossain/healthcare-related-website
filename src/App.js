@@ -4,6 +4,8 @@ import Contact from './components/Homepage/Contact/Contact';
 import Footer from './components/Homepage/Footer/Footer';
 import Header from './components/Homepage/Header/Header';
 import Home from './components/Homepage/Home/Home';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
           </Route>
           <Route path="/contact">
             <Contact></Contact>
+          </Route>
+          <Route path="/signin">
+            <SignIn></SignIn>
+          </Route>
+          <Route path="/signup">
+            <SignUp></SignUp>
           </Route>
         </Switch>
           <Route>
