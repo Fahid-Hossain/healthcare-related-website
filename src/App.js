@@ -7,6 +7,7 @@ import Footer from './components/Homepage/Footer/Footer';
 import Header from './components/Homepage/Header/Header';
 import Home from './components/Homepage/Home/Home';
 import NotFound from './components/NotFound/NotFound';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './context/AuthProvider';
@@ -40,15 +41,15 @@ function App() {
             <Departments></Departments>
             <Footer></Footer>
           </Route>
-          <Route path="/details/:_id">
+          <PrivateRoute path="/details/:_id">
             <Header></Header>
               <Details></Details>
             {/* <Footer></Footer> */}
-          </Route>
+          </PrivateRoute>
           <Route path="/signin">
             <Header></Header>
             <SignIn></SignIn>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
           </Route>
           <Route path="/signup">
             <Header></Header>
