@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged,signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import firebaseInitialize from "../Firebase/firebase.init";
 //firebase initialize
@@ -31,7 +31,7 @@ const useFirebase = () => {
 
     // observe whether user auth state changed or not
     useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
                 console.log(user);
@@ -44,22 +44,59 @@ const useFirebase = () => {
 
     }, [])
 
+    //registered with email and password
+
+    const registerWithEmailAndPassword = (email,password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                // Signed in 
+                const user = result.user;
+                setUser(user);
+                setError("");
+                // ...
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+                // ..
+            });
+    }
+
+
+
+    //sign in with email and password
+    // const emailPasswordSignIn = () => {
+    //     signInWithEmailAndPassword(auth, email, password)
+    //         .then((result) => {
+    //             // Signed in 
+    //             const user = result.user;
+    //             setUser(user);
+    //             // ...
+    //         })
+    //         .catch((error) => {
+    //             const errorMessage = error.message;
+    //             setError(errorMessage);
+    //         });
+    // }
+
     // sign out 
-    const logOut =()=>{
+    const logOut = () => {
         signOut(auth)
-        .then(() => {
-            setUser({});
-            // Sign-out successful.
-          }).catch((error) => {
-            // An error happened.
-            setError(error.message);
-          });
+            .then(() => {
+                setUser({});
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+                setError(error.message);
+            });
     }
 
     return {
         user,
+        setError,
         error,
         googleSignIn,
+        registerWithEmailAndPassword,
         logOut
 
     }
