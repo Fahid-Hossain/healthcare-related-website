@@ -38,10 +38,10 @@ function App() {
             <Departments></Departments>
             <Footer></Footer>
           </Route>
-          <Route path="/details/:id">
+          <Route path="/details/:_id">
             <Header></Header>
               <Details></Details>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
           </Route>
           <Route path="/signin">
             <Header></Header>
