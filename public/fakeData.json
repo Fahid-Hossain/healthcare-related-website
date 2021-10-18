@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "title":"Eye Care",
+        "description":"A growing consensus suggests that an overwhelming proportion of blindness and visual impairment –",
+        "img":"https://image.freepik.com/free-photo/child-eye-test-eye-exam-little-girl-having-eye-check-up-with-phoropter-doctor-performs-eye-test-child_1157-41951.jpg"
+    },
+    {
+        "id":2,
+        "title":"Physical Therapy",
+        "description":"These licensed health professionals engage in specific graduate training in physical therapy.",
+        "img":"https://image.freepik.com/free-photo/man-medical-office-physiotherapist-is-rehabilitating-back_1157-44702.jpg"
+    },
+    {
+        "id":3,
+        "title":"Diagnostic Test",
+        "description":"A diagnostic test is a test used to identify a condition or its cause. It is used to diagnose.",
+        "img":"https://image.freepik.com/free-photo/specialist-chemist-looking-medical-vacutainer-with-blood-analyzing-microbiology-clinical-expertise_482257-5634.jpg"
+    },
+    {
+        "id":4,
+        "title":"Dental Care",
+        "description":"Tech Dental Care is a valued private dentist in Dhaka serving patients at mirpur and uttara dentists..",
+        "img":"https://image.freepik.com/free-photo/dentist-with-smile_144627-886.jpg"
+    },
+    {
+        "id":5,
+        "title":"Skin Surgery",
+        "description":"Skin surgery is routinely performed by dermatologists and plastic surgeons.",
+        "img":"https://image.freepik.com/free-photo/skincare-cosmetology-procedure-pretty-woman-hospital-rejuvenation-injecting-professional-therapy-healthcare-plastic-botox-beauty_197531-2791.jpg"
+    },
+    {
+        "id":6,
+        "title":"Surgery Service",
+        "description":"Any service in a hospital or medical centre that is procedure- or intervention-based.",
+        "img":"https://image.freepik.com/free-photo/surgeons-wearing-surgical-loupes-while-performing-operation_107420-64893.jpg"
+    }
+]

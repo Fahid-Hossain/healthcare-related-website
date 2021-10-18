@@ -1,6 +1,8 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Contact from './components/Homepage/Contact/Contact';
+import Departments from './components/Homepage/Departments/Departments';
+import Details from './components/Homepage/Departments/Details/Details';
 import Footer from './components/Homepage/Footer/Footer';
 import Header from './components/Homepage/Header/Header';
 import Home from './components/Homepage/Home/Home';
@@ -29,6 +31,16 @@ function App() {
           <Route path="/contact">
             <Header></Header>
             <Contact></Contact>
+            <Footer></Footer>
+          </Route>
+          <Route path="/departments">
+            <Header></Header>
+            <Departments></Departments>
+            <Footer></Footer>
+          </Route>
+          <Route path="/details/:id">
+            <Header></Header>
+              <Details></Details>
             <Footer></Footer>
           </Route>
           <Route path="/signin">
