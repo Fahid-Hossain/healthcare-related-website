@@ -1,5 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Doctors from './components/Doctors/Doctors';
 import Contact from './components/Homepage/Contact/Contact';
 import Departments from './components/Homepage/Departments/Departments';
 import Details from './components/Homepage/Departments/Details/Details';
@@ -41,6 +42,11 @@ function App() {
             <Departments></Departments>
             <Footer></Footer>
           </Route>
+          <PrivateRoute path="/doctors">
+            <Header></Header>
+            <Doctors></Doctors>
+            <Footer></Footer>
+          </PrivateRoute>
           <PrivateRoute path="/details/:_id">
             <Header></Header>
               <Details></Details>
