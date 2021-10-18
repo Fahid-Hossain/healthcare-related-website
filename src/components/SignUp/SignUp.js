@@ -5,7 +5,7 @@ import useAuth from '../../hooks/useAuth';
 
 const SignUp = () => {
 
-    const {registerWithEmailAndPassword,error,setError,user}=useAuth();
+    const {registerWithEmailAndPassword,error,setError}=useAuth();
     
     //useState for email and password 
     const [email,setEmail]=useState("");

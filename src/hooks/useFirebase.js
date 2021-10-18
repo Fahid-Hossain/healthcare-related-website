@@ -65,25 +65,25 @@ const useFirebase = () => {
 
 
     //sign in with email and password
-    // const emailPasswordSignIn = () => {
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then((result) => {
-    //             // Signed in 
-    //             const user = result.user;
-    //             setUser(user);
-    //             // ...
-    //         })
-    //         .catch((error) => {
-    //             const errorMessage = error.message;
-    //             setError(errorMessage);
-    //         });
-    // }
+    const emailPasswordSignIn = (email,password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                // Signed in 
+                const user = result.user;
+                setUser(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+            });
+    }
 
     // sign out 
     const logOut = () => {
         signOut(auth)
             .then(() => {
-                setUser({});
+                // setUser({});
                 // Sign-out successful.
             }).catch((error) => {
                 // An error happened.
@@ -97,6 +97,7 @@ const useFirebase = () => {
         error,
         googleSignIn,
         registerWithEmailAndPassword,
+        emailPasswordSignIn,
         logOut
 
     }

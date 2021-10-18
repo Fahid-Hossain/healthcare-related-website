@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
+    const {user,logOut}=useAuth();
     return (
         <div>
             <header className="text-gray-600 body-font">
@@ -18,13 +20,25 @@ const Header = () => {
                         <Link to="/doctors" className="mr-5 hover:text-gray-900 font-semibold">Doctors</Link>
                         <Link to="/contact" className="mr-5 hover:text-gray-900 font-semibold">Contact</Link>
                     </nav>
-                    <Link to="/signin">
+                    {
+                        user.email && <img className="rounded-full h-10 w-10 " src={user.photoURL} alt="" />
+                    }
+                    <p className="text-lg font-bold mr-2">{user?.displayName}</p>
+
+                    {
+                        !user?.email ? <Link to="/signin">
                         <button className="inline-flex items-center bg-blue-600 border-0 py-1 px-4 text-white focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">Sign-In
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </button>
-                    </Link>
+                    </Link> :  <button onClick={logOut} className="inline-flex items-center bg-blue-600 border-0 py-1 px-4 text-white focus:outline-none hover:bg-blue-700 rounded text-base mt-4 md:mt-0">Log-out
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+                    }
+
                 </div>
             </header>
         </div>
