@@ -9,10 +9,12 @@ import Home from './components/Homepage/Home/Home';
 import NotFound from './components/NotFound/NotFound';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import AuthProvider from './context/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
         {/* <Route>
         <Header></Header>
@@ -61,6 +63,7 @@ function App() {
             <Footer></Footer>
           </Route> */}
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
