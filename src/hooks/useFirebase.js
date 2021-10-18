@@ -8,6 +8,10 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
 
+    //useState for loading 
+    const [isLoading, setIsLoading] = useState(true);
+
+
 
     //providers
     const googleProvider = new GoogleAuthProvider();
@@ -17,6 +21,7 @@ const useFirebase = () => {
 
     //googleSignIn 
     const googleSignIn = () => {
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
@@ -26,7 +31,10 @@ const useFirebase = () => {
             }).catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-            });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
     }
 
     // observe whether user auth state changed or not
@@ -39,6 +47,7 @@ const useFirebase = () => {
             } else {
                 setUser({});
             }
+            setIsLoading(false);
         });
         return () => unsubscribe;
 
@@ -46,7 +55,8 @@ const useFirebase = () => {
 
     //registered with email and password
 
-    const registerWithEmailAndPassword = (email,password) => {
+    const registerWithEmailAndPassword = (email, password) => {
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
@@ -59,13 +69,17 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 setError(errorMessage);
                 // ..
-            });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
     }
 
 
 
     //sign in with email and password
-    const emailPasswordSignIn = (email,password) => {
+    const emailPasswordSignIn = (email, password) => {
+        setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
@@ -76,11 +90,15 @@ const useFirebase = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-            });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
     }
 
     // sign out 
     const logOut = () => {
+        setIsLoading(true);
         signOut(auth)
             .then(() => {
                 // setUser({});
@@ -88,7 +106,10 @@ const useFirebase = () => {
             }).catch((error) => {
                 // An error happened.
                 setError(error.message);
-            });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
     }
 
     return {
@@ -98,7 +119,8 @@ const useFirebase = () => {
         googleSignIn,
         registerWithEmailAndPassword,
         emailPasswordSignIn,
-        logOut
+        logOut,
+        isLoading
 
     }
 

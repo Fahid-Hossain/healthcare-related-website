@@ -45,7 +45,7 @@ const SignUp = () => {
                     <p className="leading-relaxed mt-4">Create your account to get a your best service.For any kind of news update of health tips stay connected with us with your account . Have a good day .</p>
                 </div>
                 <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-                    <h2 className="text-gray-900 text-2xl font-medium title-font mb-5">Sign Up</h2>
+                    <h2 className="text-gray-900 text-2xl font-medium title-font mb-5">Register to Login</h2>
                     <form onSubmit={handleRegistration} className="mt-8 space-y-2" action="#" method="POST">
                         <input type="hidden" name="remember" value="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
@@ -89,7 +89,7 @@ const SignUp = () => {
                                         <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                                     </svg>
                                 </span>
-                                SignUp
+                                Register & Login
                             </button>
                         </div>
                     </form>
