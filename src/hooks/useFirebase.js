@@ -45,7 +45,7 @@ const useFirebase = () => {
 
     const registerWithEmailAndPassword = (email, password) => {
         setIsLoading(true);
-      return  createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
                 const user = result.user;
@@ -79,11 +79,11 @@ const useFirebase = () => {
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
-                
+
             })
             .finally(() => {
                 setIsLoading(false);
-                
+
             })
     }
 
