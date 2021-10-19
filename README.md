@@ -14,6 +14,16 @@ Live-link:(https://docmed-health-care.web.app/).
 * Get User information by google Sign In funtionality
 
 
+## What we use our site ?
+* React 
+* Tailwind css
+* context api
+* useAuth
+* FakeData
+* custom hooks
+* Firebase Hosting
+* Firebase Authentication
+
 In the project directory, you can run:
 
 ### `npm start`
