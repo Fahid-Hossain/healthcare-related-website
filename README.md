@@ -1,8 +1,18 @@
-# Getting Started with Create React App
+# Docemed Health Care
+A Health Care website to leading edge care for Your family Heath .
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Live-link:(https://docmed-health-care.web.app/).
+
+## What we have?
+* Differant Department of service
+* Doctors Information
+* About Docmed
+* New user Sign Up funtionality
+* Get User information Sign In funtionality 
+* Private route setting for sign In
+* Get User information by google Sign In funtionality
+
 
 In the project directory, you can run:
 
