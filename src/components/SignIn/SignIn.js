@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import { useHistory, useLocation } from 'react-router';
 
 
 const SignIn = () => {
-    const { googleSignIn } = useAuth();
-    const {emailPasswordSignIn,error,setError}=useAuth();
+    const { googleSignIn} = useAuth();
+    const history = useHistory();
+    const location = useLocation();
+    const redirect_url = location.state?.from || "/home";
+    const {emailPasswordSignIn,error}=useAuth();
     
     //useState for email and password 
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     
-    // handleRegistration form
+    // handleSignIn form
     const handleSignIn = (e) => {
         e.preventDefault();
-        // if(password.length<6){
-        //     setError("Password must be at least 6 characters Long")
-        //     return;
-        // }
-        // if(!/(?=.*[A-Z])/.test(password)){
-        //     setError("Password should contain at least one uppercase")
-        //     return;
-        // }
         emailPasswordSignIn(email,password);
     }
 
@@ -34,6 +30,15 @@ const SignIn = () => {
     const handlePasswordChange=(e)=>{
         setPassword(e.target.value);
     }
+
+    // redirect to page user wanna go after login
+    const googleSignInHandler =()=>{
+        googleSignIn()
+        .then(result=>{
+            history.push(redirect_url);
+        })
+    }
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
@@ -43,10 +48,9 @@ const SignIn = () => {
                         Sign in to your account
                     </h2>
                     <p className="mt-2 text-center text-sm text-gray-600">
-                        Or
-                        <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                        <p className="font-medium text-indigo-600 hover:text-indigo-500">
                             start your 14-day free trial
-                        </a>
+                        </p>
                     </p>
                 </div>
                 <form onSubmit={handleSignIn} className="mt-8 space-y-6" action="#" method="POST">
@@ -93,7 +97,7 @@ const SignIn = () => {
 
                         <p className="text-2xl">or</p>
                        
-                       <button onClick={googleSignIn} className="bg-transparent hover:bg-purple-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                       <button onClick={googleSignInHandler} className="bg-transparent hover:bg-purple-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                            Sign in with google
                         </button>
 

@@ -22,19 +22,7 @@ const useFirebase = () => {
     //googleSignIn 
     const googleSignIn = () => {
         setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                const user = result.user;
-                setUser(user);
-                console.log(user);
-                // ...
-            }).catch((error) => {
-                const errorMessage = error.message;
-                setError(errorMessage);
-            })
-            .finally(() => {
-                setIsLoading(false);
-            })
+        return signInWithPopup(auth, googleProvider)
     }
 
     // observe whether user auth state changed or not
@@ -57,7 +45,7 @@ const useFirebase = () => {
 
     const registerWithEmailAndPassword = (email, password) => {
         setIsLoading(true);
-        createUserWithEmailAndPassword(auth, email, password)
+      return  createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 // Signed in 
                 const user = result.user;
@@ -85,14 +73,17 @@ const useFirebase = () => {
                 // Signed in 
                 const user = result.user;
                 setUser(user);
+                setError("");
                 // ...
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
+                
             })
             .finally(() => {
                 setIsLoading(false);
+                
             })
     }
 
