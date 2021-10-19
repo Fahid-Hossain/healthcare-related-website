@@ -16,9 +16,12 @@ const Header = () => {
                     </a>
                     <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
                         <Link to="/home" className="mr-5 hover:text-gray-900 font-semibold">Home</Link>
+                        <Link to="/about" className="mr-5 hover:text-gray-900 font-semibold">About</Link>
                         <Link to="/departments" className="mr-5 hover:text-gray-900 font-semibold">Departments</Link>
                         <Link to="/doctors" className="mr-5 hover:text-gray-900 font-semibold">Doctors</Link>
                         <Link to="/contact" className="mr-5 hover:text-gray-900 font-semibold">Contact</Link>
+                       
+                   
                     </nav>
                     {
                         user.email && <img className="rounded-full h-10 w-10 " src={user.photoURL} alt="" />
