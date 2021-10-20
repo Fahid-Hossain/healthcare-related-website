@@ -49,7 +49,8 @@ const useFirebase = () => {
             .then((result) => {
                 // Signed in 
                 const user = result.user;
-                setUser(user);
+                // setUser(user);
+                alert("Registration Successfull Done. Now you can access everything")
                 setError("");
                 // ...
             })
@@ -73,6 +74,7 @@ const useFirebase = () => {
                 // Signed in 
                 const user = result.user;
                 setUser(user);
+                alert("Welcome to our website. you are successfully logged In . Now you can access everything to out site. Thank you")
                 setError("");
                 // ...
             })
